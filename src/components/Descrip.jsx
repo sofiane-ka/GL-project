@@ -7,6 +7,7 @@ const Descrip=()  => {
    <Box sx ={{margin : "auto",
               width: 1600,
               height: 1000,
+              paddingX : "30px",
                }}>
   
  
@@ -21,8 +22,10 @@ const Descrip=()  => {
   fontWeight: 10,
   fontSize : 25,
   letterSpacing: '.3rem',
-  color: '#ffffff',
-  marginTop : "200px"
+  color: '#14213D',
+  marginX : "300px",
+  paddingX :"100px",
+  margin:"auto"
  }}
  >
    There are many variations of passages of Lorem Ipsum available,

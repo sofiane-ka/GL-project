@@ -5,6 +5,7 @@ import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
 import ImagesSw from './ImagesSw';
 import Descrip from './Descrip';
+import Footer from './Footer';
 
 const HomeSec= () => {
     const Item = styled(Paper)(({ theme }) => ({
@@ -25,6 +26,7 @@ const HomeSec= () => {
                         }}>
                   <ImagesSw />
                   <Descrip/>
+                 
               </Box>
      </div>
     )

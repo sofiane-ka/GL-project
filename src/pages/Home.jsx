@@ -15,8 +15,6 @@ const Home= () => {
     <Navbar/>
     <HomeSec/>
     <Footer/>
-  
-         
     </section>
   )
 }

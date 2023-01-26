@@ -8,6 +8,9 @@ import Container from '@mui/material/Container'
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 
+
+const EnsembleFormat = [ ];
+
 const Formations= () => {
 
     return (
@@ -28,7 +31,7 @@ const Formations= () => {
     fontWeight: 50,
     fontSize:70,
     letterSpacing: '.0rem',
-    color: '#ffffff',
+    color: '#14213D',
     marginTop : "200px",
     margin:"auto",
     width:"400px"
@@ -38,17 +41,20 @@ const Formations= () => {
  </Typography>
  </Box>
  <Container sx={{ 
-    backgroundColor :"#005bc5",
+    backgroundColor :"#D9D9D9",
     weight:100,
-    height:700,
+    height:200*(EnsembleFormat.length)+700,
     marginX:"auto",
-    marginTop:"150px"
+    marginTop:"150px",
+    marginBottom:"120px"
  }}>
    
     <img sx={{
+      size : 200,
       marginX:"auto",
-      marginTop:"20px"
-    }} src="../img/Etud.png"/> 
+      marginTop:"20px",
+      marginBottom:"20px"
+    }} src="../img/Etud.png" /> 
    
 
 
@@ -59,133 +65,4 @@ const Formations= () => {
   }
   
   export default Formations
-  /* <Stack>
-
-  <Box>
-    <Stack>
-    <Box>
-    <Typography
-   variant="h6"
-   component="a"
-   href="/"
-   sx={{  
-    fontFamily: 'monospace',
-    fontWeight: 50,
-    fontSize:50,
-    letterSpacing: '.0rem',
-    color: '#ffffff',
-    marginTop : "200px",
-    margin:"auto",
-    width:"400px"
-   }}
-   >
-   Web Dev
- </Typography>
-
-    </Box>
-    <Box>
-    <Typography
-   variant="h6"
-   component="a"
-   href="/"
-   sx={{  
-    fontFamily: 'monospace',
-    fontWeight: 50,
-    fontSize:50,
-    letterSpacing: '.0rem',
-    color: '#ffffff',
-    marginTop : "200px",
-    margin:"auto",
-    width:"400px"
-   }}
-   >
-   Graphic Design 
- </Typography>
-    </Box>
-    <Box>
-    <Typography
-   variant="h6"
-   component="a"
-   href="/"
-   sx={{  
-    fontFamily: 'monospace',
-    fontWeight: 50,
-    fontSize:50,
-    letterSpacing: '.0rem',
-    color: '#ffffff',
-    marginTop : "200px",
-    margin:"auto",
-    width:"400px"
-   }}
-   >
-   Mobile Dev 
- </Typography>
-    </Box>
-    </Stack>
-  </Box>
-
-
-  <Box>
-    <Stack>
-    <Box>
-    <Typography
-   variant="h6"
-   component="a"
-   href="/"
-   sx={{  
-    fontFamily: 'monospace',
-    fontWeight: 50,
-    fontSize:50,
-    letterSpacing: '.0rem',
-    color: '#ffffff',
-    marginTop : "200px",
-    margin:"auto",
-    width:"400px"
-   }}
-   >
-   Mobile Dev 
- </Typography>
-    </Box>
-    <Box>
-    <Typography
-   variant="h6"
-   component="a"
-   href="/"
-   sx={{  
-    fontFamily: 'monospace',
-    fontWeight: 50,
-    fontSize:50,
-    letterSpacing: '.0rem',
-    color: '#ffffff',
-    marginTop : "200px",
-    margin:"auto",
-    width:"400px"
-   }}
-   >
-   Mobile Dev 
- </Typography>
-    </Box>
-    <Box>
-    <Typography
-   variant="h6"
-   component="a"
-   href="/"
-   sx={{  
-    fontFamily: 'monospace',
-    fontWeight: 50,
-    fontSize:50,
-    letterSpacing: '.0rem',
-    color: '#ffffff',
-    marginTop : "200px",
-    margin:"auto",
-    width:"400px"
-   }}
-   >
-   Mobile Dev 
- </Typography>
-    </Box>
-    </Stack>
-  </Box>
-
- </Stack>
- */
+  

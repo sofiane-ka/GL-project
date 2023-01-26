@@ -15,9 +15,16 @@ const Login=()  => {
 
     return (
    <Container sx ={{margin : "auto",
-              width: 700,
-              height: 500,
-              backgroundColor :"#005bc5",
+              width: 1100,
+              height: 600,
+              backgroundColor :"#F5F5F5",
+              marginTop:"150px"
+            
+               }}>
+    <Container sx ={{margin : "auto",
+              width: 1100,
+              height: 100,
+              backgroundColor :"#FCA311",
               marginTop:"150px"
             
                }}>
@@ -30,7 +37,7 @@ const Login=()  => {
     fontWeight: 50,
     fontSize:70,
     letterSpacing: '.0rem',
-    color: '#ffffff',
+    color: '#14213D',
     marginTop : "10px",
     textAlign:"center",
     display: {md: 'block'}
@@ -39,6 +46,9 @@ const Login=()  => {
    >
     EDUCOURS
  </Typography>
+    </Container>
+                  
+   
 
  <Typography
    variant="h6"
@@ -49,7 +59,7 @@ const Login=()  => {
     fontWeight: 10,
     fontSize:20,
     letterSpacing: '.0rem',
-    color: '#ffffff',
+    color: '#000000',
     marginTop : "10px",
     textAlign:"center",
     display: {md: 'block'}
@@ -68,15 +78,15 @@ const Login=()  => {
                 sx={{ my: 5, 
                   color: 'white',
                    display: 'block',
-                  backgroundColor:"#001449" ,
+                  backgroundColor:"#FCA311" ,
                   marginX:"auto" ,
                   marginTop:"20px",
                   height:50,
                   width:300,
                   fontFamily: 'monospace',
                   '&:hover': {
-                     backgroundColor: 'primary.main',
-                     opacity: [0.9, 0.8, 0.7],
+                     backgroundColor: '"#14213D',
+                     opacity: [0.9, 0.8, 1],
                    },
                }}
               >
@@ -95,7 +105,7 @@ const Login=()  => {
     fontWeight: 50,
     fontSize:20,
     letterSpacing: '.0rem',
-    color: '#ffffff',
+    color: '#D9D9D9',
     marginTop : "-10px",
     textAlign:"center",
     display: {md: 'block'}

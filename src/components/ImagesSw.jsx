@@ -37,7 +37,7 @@ export default function ImagesSw() {
     fontWeight: 50,
     fontSize:50,
     letterSpacing: '.0rem',
-    color: '#ffffff',
+    color: '#14213D',
     marginTop : "200px",
     margin:"auto",
     width:"400px"
@@ -62,7 +62,7 @@ export default function ImagesSw() {
     fontWeight: 50,
     fontSize:50,
     letterSpacing: '.0rem',
-    color: '#ffffff',
+    color: '#14213D',
     marginTop : "200px",
     margin:"auto",
    
@@ -71,7 +71,8 @@ export default function ImagesSw() {
    N'hesitez pas à étudier avec nous {smile}
  </Typography>
  </Box>
-    <Box sx = {{   backgroundColor:"#001449",
+    <Box sx = {{   backgroundColor:"#F5F5F5",
+                   marginBottom:"100px"
                    }}>
                     
     <ImageList
