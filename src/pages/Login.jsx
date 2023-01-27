@@ -18,7 +18,7 @@ const Login=()  => {
               width: 1100,
               height: 600,
               backgroundColor :"#F5F5F5",
-              marginTop:"150px"
+              marginTop:"200px"
             
                }}>
     <Container sx ={{margin : "auto",
@@ -26,7 +26,7 @@ const Login=()  => {
               height: 100,
               backgroundColor :"#FCA311",
               marginTop:"150px"
-            
+             
                }}>
    <Typography
    variant="h6"
@@ -47,9 +47,21 @@ const Login=()  => {
     EDUCOURS
  </Typography>
     </Container>
-                  
-   
-
+<Container sx={{
+   marginTop:"90px",
+   display:{md:"flex"},
+   flexDirection:"row",
+}}>      
+          <Container sx={{ 
+   height:300 ,
+   width:800,
+   textAlign:"center",
+   flexDirection:"row",
+   display:{md:"flex"}
+}}>
+<img src={require('../img/livre.png')} alt="login"/>
+         </Container>
+<Container>
  <Typography
    variant="h6"
    component="a"
@@ -61,8 +73,9 @@ const Login=()  => {
     letterSpacing: '.0rem',
     color: '#000000',
     marginTop : "10px",
+    flexDirection:"row",
     textAlign:"center",
-    display: {md: 'block'}
+    display: {md: 'flex'}
  
    }}
    >
@@ -94,9 +107,12 @@ const Login=()  => {
                  <Link to ="/home">Sign In With Google</Link>
       
               </Button>
+ </Container>
+</Container> 
 
-
-              <Typography
+   
+   
+<Typography
    variant="h6"
    component="a"
    href="/"
@@ -106,7 +122,7 @@ const Login=()  => {
     fontSize:20,
     letterSpacing: '.0rem',
     color: '#D9D9D9',
-    marginTop : "-10px",
+    marginTop : "80px",
     textAlign:"center",
     display: {md: 'block'}
  
