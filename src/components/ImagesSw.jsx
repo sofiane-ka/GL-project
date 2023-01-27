@@ -21,31 +21,7 @@ const smile =":)";
 export default function ImagesSw() {
   return (
     <Box > 
-      <Box sx ={{margin : "auto",
-              textAlign :"center",
-              height: 10,
-
-              marginTop :"50px",
-              marginBottom:"70px"
-               }}>
-         <Typography
-   variant="h6"
-   component="a"
-   href="/"
-   sx={{  
-    fontFamily: 'monospace',
-    fontWeight: 50,
-    fontSize:50,
-    letterSpacing: '.0rem',
-    color: '#14213D',
-    marginTop : "200px",
-    margin:"auto",
-    width:"400px"
-   }}
-   >
-   EDUCOURS: Toute Formation ou Cours sont disponible ! 
- </Typography>
- </Box>
+      
  <Box sx ={{margin : "auto",
               textAlign :"center",
               height: 10,

@@ -9,6 +9,7 @@ import Button from '@mui/material/Button';
 import Container from '@mui/material/Container'
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
+import Avatar from '@mui/material/Avatar';
 
 
 const EnsembleFormat = [
@@ -72,7 +73,7 @@ const EnsembleFormat = [
 
  ];
 
-const Formations= () => {
+const Profile= () => {
   const [isGray,setGray] = useState("1");
 
   const handleGray = ()=> {
@@ -81,30 +82,16 @@ const Formations= () => {
     return (
       <div className=''>
         <Navbar/>
-        <Box sx ={{margin : "auto",
+        <Container sx={{flexDirection:"column",display:{md:"flex"} }} >
+        <Container sx ={{
               textAlign :"center",
               height: 10,
+              flexDirection:"column",display:{md:"flex"},
               marginTop :"50px",
               marginBottom:"70px"
                }}>
-         <Typography
-   variant="h6"
-   component="a"
-   href="/"
-   sx={{  
-    fontFamily: 'monospace',
-    fontWeight: 50,
-    fontSize:70,
-    letterSpacing: '.0rem',
-    color: '#14213D',
-    marginTop : "200px",
-    margin:"auto",
-    width:"400px"
-   }}
-   >
-    Formations
- </Typography>
- </Box>
+         <Avatar sx={{ width:400 ,height:400}} alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+        </Container>
 
  
  <Container sx={{ 
@@ -112,9 +99,9 @@ const Formations= () => {
     width:1000,
     height:335*(EnsembleFormat.length),
    
-    marginTop:"150px",
+    marginTop:"400px",
     marginBottom:"120px",
-    paddingBottom:"35px",
+    paddingBottom:"5px",
     flexDirection:"column",
     display:{md:"flex"}
  }}>
@@ -254,12 +241,13 @@ const Formations= () => {
 ))
 }
     </Container>
+    </Container> 
  <Footer/>
       </div>
     )
   }
   
-  export default Formations
+  export default Profile
   
 /*  { img : '../img/livre.png',
   theme :"Web Dev",

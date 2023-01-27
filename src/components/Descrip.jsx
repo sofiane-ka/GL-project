@@ -23,9 +23,9 @@ const Descrip=()  => {
   fontSize : 25,
   letterSpacing: '.3rem',
   color: '#14213D',
-  marginX : "300px",
+  marginTop : "300px",
   paddingX :"100px",
-  margin:"auto"
+  
  }}
  >
    There are many variations of passages of Lorem Ipsum available,

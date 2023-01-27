@@ -6,6 +6,8 @@ import { styled } from '@mui/material/styles';
 import ImagesSw from './ImagesSw';
 import Descrip from './Descrip';
 import Footer from './Footer';
+import { Typography } from '@mui/material';
+import Welcome from './Welcome';
 
 const HomeSec= () => {
     const Item = styled(Paper)(({ theme }) => ({
@@ -24,7 +26,32 @@ const HomeSec= () => {
                        padding:"auto",
        
                         }}>
-                  <ImagesSw />
+                          <Box sx ={{margin : "auto",
+              textAlign :"center",
+              height: 10,
+
+              marginTop :"50px",
+              marginBottom:"70px"
+               }}>
+         <Typography
+   variant="h6"
+   component="a"
+   href="/"
+   sx={{  
+    fontFamily: 'monospace',
+    fontWeight: 50,
+    fontSize:50,
+    letterSpacing: '.0rem',
+    color: '#14213D',
+    marginTop : "200px",
+    margin:"auto",
+    width:"400px"
+   }}
+   >
+   EDUCOURS: Toute Formation ou Cours sont disponible  
+ </Typography>
+ </Box>
+                  <Welcome/>
                   <Descrip/>
                  
               </Box>

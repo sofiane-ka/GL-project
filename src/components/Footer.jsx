@@ -14,7 +14,8 @@ const Footer= () => {
           height:"15rem",
           textAlign:"center",
           marginTop :"auto",
-          position:"absolute"
+          position:"absolute",
+          marginBottom:"1px",
           }}>
            
 <Typography
@@ -28,6 +29,7 @@ const Footer= () => {
     letterSpacing: '.0rem',
     color: '#FFFFFF',
     marginTop:"60px",
+  
     textAlign:"center",
     alignSelf: "center",
     display: {xs: 'inline-block'}

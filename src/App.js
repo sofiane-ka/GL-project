@@ -16,6 +16,7 @@ import Contact from "./components/Contact";
 import HomeAdmin from "./pages/HomeAdmin";
 import HomeTeacher from "./pages/HomeTeacher";
 import Login from "./pages/Login";
+import Profile from "./components/Profile";
 
 
 
@@ -33,6 +34,7 @@ function App() {
           <Route path="/formations"  element={<Formations />} />
           <Route path="/cours"  element={<Cours />} />
           <Route path="/contact"  element={<Contact />} />
+          <Route path="/home/profile"  element={<Profile />} />
           </Routes>
           </Router>
       </div>
