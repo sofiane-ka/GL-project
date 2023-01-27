@@ -12,10 +12,64 @@ import ImageListItem from '@mui/material/ImageListItem';
 import Avatar from '@mui/material/Avatar';
 import userEvent from "@testing-library/user-event";
 import TextField from '@mui/material/TextField';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 
 
+ const EnsembleFormat =[
+  { img : '../img/livre.png',
+ theme :"Web Dev",
+ announcer:"Younes Oudjehane",
+ content : "content 2 is ...s simply dummy text the printing and typesetting indust Lorem Ipsum has been the industry." ,
+ id:1
 
-  
+},
+{ img : '../img/livre.png',
+ theme :"Web Dev",
+ announcer:"Younes Oudjehane",
+ content : "content 3 is ..s simply dummy text the printing and typesetting indust Lorem Ipsum has been the industry." ,
+ id:2
+
+},
+{ img : '../img/livre.png',
+ theme :"Web Dev",
+ announcer:"Younes Oudjehane",
+ content : "content 4 is ... is simply dummy text the printing and typesetting indust Lorem Ipsum has been the industry." ,
+ id:2
+
+},
+{ img : '../img/livre.png',
+ theme :"Web Dev",
+ announcer:"Younes Oudjehane",
+ content : "content 6 is ...is simply dummy text the printing and typesetting indust Lorem Ipsum has been the industry." ,
+ id:1
+
+},
+{ img : '../img/livre.png',
+ theme :"Web Dev",
+ announcer:"Younes Oudjehane",
+ content : "content 7 is ...is simply dummy text the printing and typesetting indust Lorem Ipsum has been the industry." ,
+ id:2
+
+},
+{ img : '../img/livre.png',
+ theme :"Web Dev",
+ announcer:"Younes Oudjehane",
+ content : "content 8 is ...psum is simply dummy text the printing and typesetting indust Lorem Ipsum has been the industry." ,
+ id:2
+
+},
+{ img : '../img/livre.png',
+ theme :"Web Dev",
+ announcer:"Sofiane Karaouni",
+ content : "content 9 is .....is simply dummy text the printing and typesetting indust Lorem Ipsum has been the industry." ,
+ id:1
+
+}
+ ] ;
 
 const user = [
   {
@@ -23,17 +77,26 @@ const user = [
     lastName:"Karaouni",
     job:"Mobile developer",
     age:"20",
-    id:"1"
+    id:1
   }
 ]
 
 const Profile= () => {
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
   const [input,setInput] =useState( 
   { img : '../img/livre.png',
   theme :"",
   announcer:"",
   content : "content 2 is ...s simply dummy text the printing and typesetting indust Lorem Ipsum has been the industry." ,
-  id:""
+  id:user[0].id
  });
 
  const handleChangeInput = (e)=> {
@@ -43,62 +106,17 @@ const Profile= () => {
  }))
  }
  
-const [EnsembleFormat,setFormat] = useState(
- [   
- { img : '../img/livre.png',
- theme :"Web Dev",
- announcer:"Younes Oudjehane",
- content : "content 2 is ...s simply dummy text the printing and typesetting indust Lorem Ipsum has been the industry." ,
- id:"2"
-
-},
-{ img : '../img/livre.png',
- theme :"Web Dev",
- announcer:"Younes Oudjehane",
- content : "content 3 is ..s simply dummy text the printing and typesetting indust Lorem Ipsum has been the industry." ,
- id:"2"
-
-},
-{ img : '../img/livre.png',
- theme :"Web Dev",
- announcer:"Younes Oudjehane",
- content : "content 4 is ... is simply dummy text the printing and typesetting indust Lorem Ipsum has been the industry." ,
- id:"2"
-
-},
-{ img : '../img/livre.png',
- theme :"Web Dev",
- announcer:"Younes Oudjehane",
- content : "content 6 is ...is simply dummy text the printing and typesetting indust Lorem Ipsum has been the industry." ,
- id:"2"
-
-},
-{ img : '../img/livre.png',
- theme :"Web Dev",
- announcer:"Younes Oudjehane",
- content : "content 7 is ...is simply dummy text the printing and typesetting indust Lorem Ipsum has been the industry." ,
- id:"2"
-
-},
-{ img : '../img/livre.png',
- theme :"Web Dev",
- announcer:"Younes Oudjehane",
- content : "content 8 is ...psum is simply dummy text the printing and typesetting indust Lorem Ipsum has been the industry." ,
- id:"2"
-
-},
-{ img : '../img/livre.png',
- theme :"Web Dev",
- announcer:"Younes Oudjehane",
- content : "content 9 is .....is simply dummy text the printing and typesetting indust Lorem Ipsum has been the industry." ,
- id:"2"
-
-} ]);
+const [EnsembleFormatUser,setFormat] = useState(
+  EnsembleFormat.filter((obj) => obj.id === user[0].id)
+  );
 
 const handleCreateAnn = (e) => {
    e.preventDefault();
-   const copyEns =[input].concat(EnsembleFormat);
+   if(input.id === user[0].id){
+   const copyEns =[input].concat(EnsembleFormatUser);
    setFormat(copyEns);
+   }
+   else setOpen(true);
 }
   
   const [announce , setAnnounce] = useState("0");
@@ -107,15 +125,27 @@ const handleCreateAnn = (e) => {
   const handleAnnounce = () => {
       if (announce ==="0")  setAnnounce("1") ; else setAnnounce("0") ;
   }
+  const handleDeleteAnn= () => {
+    if (announce ==="0")  setAnnounce("-1") ; else setAnnounce("0") ;
+} 
 
   const handleGray = ()=> {
     isGray === 0 ? setGray(1) : setGray(0);
+  }
+
+  const handleDelete=(e) => {
+    e.preventDefault();
+   if(input.id === user[0].id){
+   const copyEns =EnsembleFormatUser.filter((obj)=>{ return ((obj.id !== input.id)||(obj.theme !==input.theme));});
+   setFormat(copyEns);
+   }
+   else setOpen(true);
   }
     return (
       <div className=''>
         <Navbar/>
       
-        <Container sx={{backgroundColor:"#ffffff",marginY:"30px" ,height: () => { return (announce ==="0" ? 500 : 1000 ) }, flexDirection:"column",display:{md:"flex"} }} >
+        <Container sx={{backgroundColor:"#ffffff",marginTop:"30px" ,height: () => { return (announce ==="0" ? 600 : 950 ) }, flexDirection:"column",display:{md:"flex"} }} >
 
                  {/*Avatar */ }
                   <Container sx ={{
@@ -125,14 +155,12 @@ const handleCreateAnn = (e) => {
                   width:"80%",
                   flexDirection:"row",display:{md:"flex"},
                   marginTop :"50px",
-                 paddingY:"20px"
                   }}>
                  <Avatar sx={{ width:250 ,height:250}} alt={user.firstName} src="/static/images/avatar/3.jpg" />
                  <Container sx={{marginY:"30px" ,height:400, flexDirection:"column",display:{md:"flex"} }}>
                  <Typography
                    variant="h6"
                    component="a"
-                   href="/"
                    sx={{  
                     display:"absolute",
                     fontFamily: 'monospace',
@@ -151,7 +179,6 @@ const handleCreateAnn = (e) => {
                    <Typography
                    variant="h6"
                    component="a"
-                   href="/"
                    sx={{  
                     display:"absolute",
                     fontFamily: 'monospace',
@@ -170,7 +197,6 @@ const handleCreateAnn = (e) => {
                    <Typography
                    variant="h6"
                    component="a"
-                   href="/"
                    sx={{  
                     display:"absolute",
                     fontFamily: 'monospace',
@@ -190,7 +216,13 @@ const handleCreateAnn = (e) => {
 
 
                {/* Create an annoucement*/}
-
+               
+               { (announce==="0") && <Container sx={{
+         marginTop:"250px",
+         height:50,
+         alignItems:"center",
+         justifyContent:"center",
+         width:700 , flexDirection:"column", display:{md:"flex"}}}>
                <Button
                 key="submit"
 
@@ -201,7 +233,7 @@ const handleCreateAnn = (e) => {
                    display: 'block',
                   backgroundColor:"#FCA311" ,
                   marginX:"auto" ,
-                  marginTop:"200px",
+                  marginTop:"40px",
                   height:50,
                   width:300,
                   fontFamily: 'monospace',
@@ -214,12 +246,88 @@ const handleCreateAnn = (e) => {
                 
                 Create an announcement
       
+              </Button> 
+             
+              <Button
+                key="submit"
+
+                onClick={handleDeleteAnn}
+                
+                sx={{ my: 5, 
+                  color: 'white',
+                   display: 'block',
+                  backgroundColor:"#FCA311" ,
+                  marginX:"auto" ,
+                  marginTop:"0px",
+                  height:50,
+                  width:300,
+                  fontFamily: 'monospace',
+                  '&:hover': {
+                     backgroundColor: '#D9D9D9',
+                     opacity: [0.9, 0.8, 1],
+                   },
+               }}
+              >
+                
+                Delete an annoucement
+      
               </Button>
-              {(announce ==="1")   && <form onSubmit={handleCreateAnn} >
-         {(announce ==="1")   &&  <TextField name="theme" onChange={handleChangeInput} value ={input.theme} sx={{marginTop:"50px",marginX:"170px"}} required id="theme" label="Theme"  placeholder="Mobile dev"  />  }
-         {(announce ==="1")  &&   <TextField name="announcer"onChange={handleChangeInput}  value ={input.announcer} sx={{marginTop:"50px",marginX:"170px"}} required id="announcer" label="Announcer"  placeholder="Sofiane Karaouni"  />  }
-         {(announce ==="1")   &&  <TextField name="content" onChange={handleChangeInput}  value ={input.content} sx={{marginTop:"50px",marginX:"170px"}} required id="content" label="Content"  placeholder="Ex: I'm a teacher.."  />  }
-         {(announce ==="1")  &&   <TextField name="id"onChange={handleChangeInput}  value ={input.id} sx={{marginTop:"50px",marginX:"170px"}} required id="id" label="ID"  placeholder="sofiane.x"  />  }
+            
+              </Container>
+              }
+             { (announce==="1") && <Box sx ={{margin : "auto", 
+             textAlign :"center",
+             height: 10,
+             marginTop : "200px",
+           
+              }}>
+        <Typography
+  variant="h6"
+  component="a"
+  sx={{  
+   fontFamily: 'monospace',
+   fontWeight: 50,
+   fontSize:30,
+   letterSpacing: '.0rem',
+   color: '#FCA311',
+   marginTop : "200px",
+   margin:"auto",
+   width:"100px"
+  }}
+  >
+   Create Announce
+</Typography>
+</Box> }
+             { (announce==="-1") &&  <Box sx ={{margin : "auto",
+             textAlign :"center",
+             height: 10,
+             marginTop : "200px",
+        
+              }}>
+        <Typography
+  variant="h6"
+  component="a"
+  sx={{  
+   fontFamily: 'monospace',
+   fontWeight: 50,
+   fontSize:30,
+   letterSpacing: '.0rem',
+   color: '#FCA311',
+   marginTop: "200px",
+   width:"100px"
+  }}
+  >
+   Delete Announce
+</Typography>
+</Box> 
+              } 
+  
+{ (announce!=="0") &&  <Container sx={{ marginBottom:"90px", marginTop:"0px",justifyContent:"center"}}>
+                     <form sx={{ marginTop:"20px", display:{md:"flex"}, flexDirection:"column",justifyContent:"center"}} onSubmit={handleCreateAnn} >
+                         <TextField name="theme" onChange={handleChangeInput} value ={input.theme} sx={{width:"70%",marginTop:"20px",marginX:"170px"}} required id="theme" label="Theme"  placeholder="Mobile dev"  />  
+                         <TextField name="announcer"onChange={handleChangeInput}  value ={input.announcer} sx={{width:"70%",marginTop:"20px",marginX:"170px"}} required id="announcer" label="Announcer"  placeholder="Sofiane Karaouni"  />  
+                         <TextField name="content" onChange={handleChangeInput}  value ={input.content} sx={{width:"70%",marginTop:"20px",marginX:"170px"}} required id="content" label="Content"  placeholder="Ex: I'm a teacher.."  />  
+                         <TextField name="id"onChange={handleChangeInput}  value ={input.id} sx={{width:"70%",marginTop:"20px",marginX:"170px"}} required id="id" label="ID"  placeholder="sofiane.x"  />  
           
          <Container sx={{
          marginTop:"40px",
@@ -227,7 +335,35 @@ const handleCreateAnn = (e) => {
          alignItems:"center",
          justifyContent:"center",
          width:700 , flexDirection:"row", display:{md:"flex"}}}> 
+         {(announce==="-1")&&
          <Button
+                key="submit"
+
+                onClick={handleDelete}
+                
+                sx={{ my: 5, 
+                  color: 'white',
+                   display: 'block',
+                  backgroundColor:"#FCA311" ,
+                 
+                  marginTop:"40px",
+                  height:50,
+                  width:300,
+                  marginRight:"10px",
+                  fontFamily: 'monospace',
+                  '&:hover': {
+                     backgroundColor: '#D9D9D9',
+                     opacity: [0.9, 0.8, 1],
+                   },
+               }}
+              >
+                
+                Delete
+      
+              </Button>
+            }
+              {(announce==="1")&&
+              <Button
                 key="submit"
 
                 onClick={handleCreateAnn}
@@ -252,7 +388,7 @@ const handleCreateAnn = (e) => {
                 Post
       
               </Button>
-              
+               }
               <Button
                 onClick={handleAnnounce}
                 sx={{ my: 5, 
@@ -278,13 +414,37 @@ const handleCreateAnn = (e) => {
 
                    
               </Container> 
-              </form> }
+              </form>
+              </Container> }
 
  </Container> 
+ <div>
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">
+          {"Error in form"}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            L'ID est incorrect , veuillez réessayer !
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose}>Annuler</Button>
+          <Button onClick={handleClose} autoFocus>
+            OK
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </div>
  <Container sx={{ 
     backgroundColor :"#D9D9D9",
     width:1000,
-    height:335*(EnsembleFormat.length),
+    height:335*(EnsembleFormatUser.length),
    
     marginTop:"150px",
     marginBottom:"120px",
@@ -293,7 +453,7 @@ const handleCreateAnn = (e) => {
     display:{md:"flex"}
  }}>
    {
- EnsembleFormat.map((frm) => (
+ EnsembleFormatUser.map((frm) => (
 
 <Container sx={{ 
     height:300 ,
@@ -329,7 +489,6 @@ const handleCreateAnn = (e) => {
 <Typography
  variant="h6"
  component="a"
- href="/"
  sx={{  
   fontFamily: 'monospace',
   fontWeight: 10,
@@ -361,7 +520,6 @@ const handleCreateAnn = (e) => {
   <Typography
  variant="h6"
  component="a"
- href="/"
  sx={{  
   fontFamily: 'monospace',
   fontWeight: 10,
@@ -379,7 +537,6 @@ const handleCreateAnn = (e) => {
 <Container sx={{paddingLeft:"1px", display:{md:"flex"}}}><Typography
  variant="h6"
  component="a"
- href="/"
  sx={{  
   fontFamily: 'monospace',
   fontWeight: 10,

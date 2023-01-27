@@ -33,7 +33,6 @@ const Welcome=()  => {
                          <Typography
                           variant="h6"
                           component="a"
-                           href="/"
                          sx={{  
                        fontFamily: 'monospace',
                        fontWeight: 100,
@@ -50,7 +49,6 @@ const Welcome=()  => {
                       <Typography
    variant="h6"
    component="a"
-   href="/"
    sx={{  
     fontFamily: 'monospace',
     fontWeight: 10,
@@ -114,7 +112,6 @@ const Welcome=()  => {
                      <Typography
                           variant="h6"
                           component="a"
-                           href="/"
                          sx={{  
                        fontFamily: 'monospace',
                        fontWeight: 100,
@@ -134,7 +131,6 @@ const Welcome=()  => {
                      <Typography
                           variant="h6"
                           component="a"
-                           href="/"
                          sx={{  
                        fontFamily: 'monospace',
                        fontWeight: 10,

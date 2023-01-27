@@ -15,7 +15,6 @@ const Descrip=()  => {
  variant="h6"
 
  component="a"
- href="/"
  sx={{
   mr: 2,
   fontFamily: 'monospace',

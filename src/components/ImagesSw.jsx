@@ -32,7 +32,6 @@ export default function ImagesSw() {
          <Typography
    variant="h6"
    component="a"
-   href="/"
    sx={{  
     fontFamily: 'monospace',
     fontWeight: 50,

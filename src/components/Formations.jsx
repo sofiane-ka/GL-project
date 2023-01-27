@@ -90,7 +90,6 @@ const Formations= () => {
          <Typography
    variant="h6"
    component="a"
-   href="/"
    sx={{  
     fontFamily: 'monospace',
     fontWeight: 50,
@@ -154,7 +153,6 @@ const Formations= () => {
 <Typography
  variant="h6"
  component="a"
- href="/"
  sx={{  
   fontFamily: 'monospace',
   fontWeight: 10,
@@ -186,7 +184,6 @@ const Formations= () => {
   <Typography
  variant="h6"
  component="a"
- href="/"
  sx={{  
   fontFamily: 'monospace',
   fontWeight: 10,
@@ -204,7 +201,6 @@ const Formations= () => {
 <Container sx={{paddingLeft:"1px", display:{md:"flex"}}}><Typography
  variant="h6"
  component="a"
- href="/"
  sx={{  
   fontFamily: 'monospace',
   fontWeight: 10,

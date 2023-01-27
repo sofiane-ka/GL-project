@@ -61,7 +61,7 @@ function Navbar() {
             variant="h6"
             noWrap
             component="a"
-            href="/"
+            href="/home"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -116,6 +116,7 @@ function Navbar() {
                   { (page === "Formations") && <Typography textAlign="center"><Link to ="/formations">{page}</Link></Typography>}
                   { (page === "Cours") && <Typography textAlign="center"><Link to ="/cours">{page}</Link></Typography>}
                   { (page === "Contact") && <Typography textAlign="center"><Link to ="/contact">{page}</Link></Typography>}
+                  
                 </MenuItem>
               ))}
             </Menu>

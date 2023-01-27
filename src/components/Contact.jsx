@@ -21,7 +21,6 @@ const Contact= () => {
          <Typography
    variant="h6"
    component="a"
-   href="/"
    sx={{  
     fontFamily: 'monospace',
     fontWeight: 50,
