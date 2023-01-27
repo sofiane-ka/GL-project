@@ -13,17 +13,19 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+
+
+
 const pages = ['Home', 'Formations', 'Cours','Contact'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-function ResponsiveAppBar() {
+function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
-  let navigate = useNavigate(); 
-  const handleChange = (setting) =>{ 
+ 
+  /*const handleChange = (setting) =>{ 
     if(setting==="Logout"){
-    let path = ``; 
+    let path = ''; 
     navigate(path);
     }
     else{
@@ -31,7 +33,7 @@ function ResponsiveAppBar() {
     navigate(path);
     }
   }
-
+*/
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -160,7 +162,7 @@ function ResponsiveAppBar() {
               </IconButton>
             </Tooltip>
             <Menu
-              sx={{ mt: '45px' }}
+              sx={{color :"#D9D9D9", mt: '45px' }}
               id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={{
@@ -176,8 +178,9 @@ function ResponsiveAppBar() {
               onClose={handleCloseUserMenu}
             >
               {settings.map((setting) => (
-                <MenuItem key={setting} onClick={()=>handleChange(setting)}>
-                  <Typography textAlign="center">{setting}</Typography>
+                <MenuItem key={setting} >
+               {   (setting != "Logout") && < Link to ={`/${setting}`}>{setting}</Link> }
+               {   (setting === "Logout") && < Link to ="/">{setting}</Link> }
                 </MenuItem>
               ))}
             </Menu>
@@ -187,4 +190,7 @@ function ResponsiveAppBar() {
     </AppBar>
   );
 }
-export default ResponsiveAppBar;
+export default Navbar;
+/*
+<Typography textAlign="center">{setting}</Typography>
+*/

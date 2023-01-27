@@ -34,7 +34,7 @@ function App() {
           <Route path="/formations"  element={<Formations />} />
           <Route path="/cours"  element={<Cours />} />
           <Route path="/contact"  element={<Contact />} />
-          <Route path="/home/profile"  element={<Profile />} />
+          <Route path="/Profile"  element={<Profile />} />
           </Routes>
           </Router>
       </div>
