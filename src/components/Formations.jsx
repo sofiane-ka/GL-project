@@ -10,6 +10,10 @@ import Container from '@mui/material/Container'
 import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 
+import IconButton from "@mui/material/IconButton";
+import SearchIcon from "@mui/icons-material/Search";
+import TextField from "@mui/material/TextField";
+
 
 const EnsembleFormat = [
   { img: '../img/livre.png',
@@ -73,19 +77,24 @@ const EnsembleFormat = [
  ];
 
 const Formations= () => {
-  const [isGray,setGray] = useState("1");
-
+   const [isGray,setGray] = useState("1");
+   
+   const [searchQuery, setSearchQuery] = useState("");
+  
   const handleGray = ()=> {
     isGray === 0 ? setGray(1) : setGray(0);
   }
     return (
-      <div className=''>
+      <div sx={{height:"100%",width:"100%"}}>
         <Navbar/>
-        <Box sx ={{margin : "auto",
+        <Box sx ={{
+              
+              margin : "auto",
               textAlign :"center",
-              height: 10,
+              height: 110,
               marginTop :"50px",
-              marginBottom:"70px"
+              marginBottom:"70px",
+              width:"30%"
                }}>
          <Typography
    variant="h6"
@@ -96,29 +105,52 @@ const Formations= () => {
     fontSize:70,
     letterSpacing: '.0rem',
     color: '#14213D',
-    marginTop : "200px",
-    margin:"auto",
-    width:"400px"
    }}
    >
     Formations
  </Typography>
  </Box>
 
+ <Box sx ={{
+              
+              margin : "auto",
+              textAlign :"center",
+              height: 110,
+              marginTop :"50px",
+              marginBottom:"70px",
+              width:"70%",
+              alignItems:"center"
+               }}>
+                <form >
+ <TextField
+      id="search-bar"
+      className="text"
+      onInput={(e) => {
+        setSearchQuery(e.target.value);
+      }}
+      sx={{width:"60%",marginX:"0px"}} variant="outlined"  label="Rechercher une formation que vous voulez accéder"  placeholder="Mobile dev"
+    />
+    
+    
+    
+</form>
+               </Box>
  
- <Container sx={{ 
+ 
+  
+
+  <Container sx={{ 
     backgroundColor :"#D9D9D9",
     width:1000,
-    height:335*(EnsembleFormat.length),
+    height:335*(EnsembleFormat.length)+50,
    
-    marginTop:"150px",
-    marginBottom:"120px",
-    paddingBottom:"35px",
+    marginTop:"50px",
+    marginBottom:"200px",
     flexDirection:"column",
     display:{md:"flex"}
  }}>
    {
- EnsembleFormat.map((frm) => (
+ EnsembleFormat.filter((d) => Object.values(d).some(val => val.includes(searchQuery))).map((frm) => (
 <Container sx={{ 
     height:300 ,
     marginTop:"35px",
@@ -127,7 +159,7 @@ const Formations= () => {
     flexDirection:"row",
     display:{md:"flex"}}}> 
     
-                   {/* image*/}
+                   {/* image */}
 
                   <Container sx={{ 
                     marginLeft:"1px",
@@ -170,7 +202,7 @@ const Formations= () => {
   </Container>
 
 
-  {/* announcer content move*/}
+ 
   <Container sx={{ 
                     marginLeft:"1px",
     height:650 ,
@@ -227,6 +259,7 @@ const Formations= () => {
                 backgroundColor:"#FCA311" ,
                 marginLeft:"1px" ,
                 marginTop:"5px",
+                
                 height:50,
                 width:70,
                 fontFamily: 'monospace',
@@ -250,6 +283,7 @@ const Formations= () => {
 ))
 }
     </Container>
+
  <Footer/>
       </div>
     )

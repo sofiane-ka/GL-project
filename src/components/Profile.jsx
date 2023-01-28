@@ -84,6 +84,8 @@ const user = [
 const Profile= () => {
   const [open, setOpen] = React.useState(false);
 
+  const [searchQuery, setSearchQuery] = useState("");
+
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -222,7 +224,32 @@ const handleCreateAnn = (e) => {
          height:50,
          alignItems:"center",
          justifyContent:"center",
-         width:700 , flexDirection:"column", display:{md:"flex"}}}>
+         width:900 , flexDirection:"column", display:{md:"flex"}}}>
+           
+           <Box sx ={{
+              
+              margin : "auto",
+              textAlign :"center",
+              height: 130,
+              marginTop :"70px",
+              marginBottom:"70px",
+              width:"100%",
+              alignItems:"center"
+               }}>
+                <form >
+ <TextField
+      id="search-bar"
+      className="text"
+      onInput={(e) => {
+        setSearchQuery(e.target.value);
+      }}
+      sx={{width:"60%",marginX:"0px"}} variant="outlined"  label="Rechercher une formation que vous voulez accéder"  placeholder="Mobile dev"
+    />
+    
+    
+    
+</form>
+               </Box>
                <Button
                 key="submit"
 
@@ -233,7 +260,7 @@ const handleCreateAnn = (e) => {
                    display: 'block',
                   backgroundColor:"#FCA311" ,
                   marginX:"auto" ,
-                  marginTop:"40px",
+                  marginTop:"0px",
                   height:50,
                   width:300,
                   fontFamily: 'monospace',
@@ -444,16 +471,16 @@ const handleCreateAnn = (e) => {
  <Container sx={{ 
     backgroundColor :"#D9D9D9",
     width:1000,
-    height:335*(EnsembleFormatUser.length),
+    height:335*(EnsembleFormatUser.length)+50,
    
     marginTop:"150px",
-    marginBottom:"120px",
+    marginBottom:"200px",
     paddingBottom:"35px",
     flexDirection:"column",
     display:{md:"flex"}
  }}>
    {
- EnsembleFormatUser.map((frm) => (
+ EnsembleFormatUser.filter((d) => Object.values(d).some(val => val.includes(searchQuery))).map((frm) => (
 
 <Container sx={{ 
     height:300 ,

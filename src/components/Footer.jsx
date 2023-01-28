@@ -8,14 +8,21 @@ const Footer= () => {
 
     return (
       
-        <footer>
+        <footer sx={{width:"100%",
+        height:"10rem",
+        position:"absolute",
+        bottom: 0,
+        right:0,
+        paddingBottom:"270px",
+        left:0,}}>
           <Container maxWidth="2xl" sx={{
           backgroundColor:"#14213D",
-          height:"15rem",
-          textAlign:"center",
-          marginTop :"auto",
-          position:"absolute",
-          marginBottom:"1px",
+          display: "block",
+    alignItems: "center",
+    height:"100%",
+    justifyContent: "center",
+    textAlign: "center",
+    paddingBottom:"110px"
           }}>
            
 <Typography
@@ -27,10 +34,9 @@ const Footer= () => {
     fontSize:20,
     letterSpacing: '.0rem',
     color: '#FFFFFF',
-    marginTop:"60px",
-  
-    textAlign:"center",
-    alignSelf: "center",
+    marginTop:"120px",
+    textAlign:"start",
+    
     display: {xs: 'inline-block'}
  
    }}
