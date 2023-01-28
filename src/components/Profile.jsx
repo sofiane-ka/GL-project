@@ -24,50 +24,49 @@ import DialogTitle from '@mui/material/DialogTitle';
  theme :"Web Dev",
  announcer:"Younes Oudjehane",
  content : "content 2 is ...s simply dummy text the printing and typesetting indust Lorem Ipsum has been the industry." ,
- id:1
+ id:"1"
 
 },
 { img : '../img/livre.png',
  theme :"Web Dev",
  announcer:"Younes Oudjehane",
  content : "content 3 is ..s simply dummy text the printing and typesetting indust Lorem Ipsum has been the industry." ,
- id:2
+ id:"2"
 
 },
 { img : '../img/livre.png',
  theme :"Web Dev",
  announcer:"Younes Oudjehane",
  content : "content 4 is ... is simply dummy text the printing and typesetting indust Lorem Ipsum has been the industry." ,
- id:2
+ id:"2"
 
 },
 { img : '../img/livre.png',
  theme :"Web Dev",
  announcer:"Younes Oudjehane",
  content : "content 6 is ...is simply dummy text the printing and typesetting indust Lorem Ipsum has been the industry." ,
- id:1
+ id:"1"
 
 },
 { img : '../img/livre.png',
  theme :"Web Dev",
  announcer:"Younes Oudjehane",
  content : "content 7 is ...is simply dummy text the printing and typesetting indust Lorem Ipsum has been the industry." ,
- id:2
+ id:"2"
 
 },
 { img : '../img/livre.png',
  theme :"Web Dev",
  announcer:"Younes Oudjehane",
  content : "content 8 is ...psum is simply dummy text the printing and typesetting indust Lorem Ipsum has been the industry." ,
- id:2
+ id:"2"
 
 },
 { img : '../img/livre.png',
  theme :"Web Dev",
  announcer:"Sofiane Karaouni",
  content : "content 9 is .....is simply dummy text the printing and typesetting indust Lorem Ipsum has been the industry." ,
- id:1
-
+ id:"1"
 }
  ] ;
 
@@ -77,7 +76,7 @@ const user = [
     lastName:"Karaouni",
     job:"Mobile developer",
     age:"20",
-    id:1
+    id:"1"
   }
 ]
 
