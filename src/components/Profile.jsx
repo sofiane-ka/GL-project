@@ -150,7 +150,7 @@ const handleCreateAnn = (e) => {
 
                  {/*Avatar */ }
                   <Container sx ={{
-                  backgrounColor:"#FCA311",
+                  
                   textAlign :"center",
                   height: 100 ,
                   width:"80%",
