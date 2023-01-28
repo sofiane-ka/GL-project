@@ -42,7 +42,7 @@ const Contact= () => {
     height:500,
     marginX:"auto",
     marginTop:"150px",
-    marginBottom:"100%"
+    marginBottom:"120px"
  }}>
 
  </Container>
