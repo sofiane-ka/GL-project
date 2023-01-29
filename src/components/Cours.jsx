@@ -1,14 +1,13 @@
 import React from 'react'
 import Box from '@mui/material/Box'; 
 import { Typography } from '@mui/material';
-import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 import Button from '@mui/material/Button';
 import TextField from "@mui/material/TextField";
-import  { useState, useEffect } from "react";
+import  { useState } from "react";
 
 const EnsembleCours =["Mobile Dev" , "Web Dev" , "Graphic Design" , "Film Editing","Logo Design"];
 const Cours= () => {

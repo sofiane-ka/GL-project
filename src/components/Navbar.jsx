@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -13,7 +13,8 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { Link } from "react-router-dom";
-
+import { UserContext } from './UserContext';
+import { useContext } from 'react';
 
 
 const pages = ['Home', 'Formations', 'Cours','Contact'];
@@ -34,6 +35,8 @@ function Navbar() {
     }
   }
 */
+const {user,setUser} = useContext(UserContext);
+
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -156,10 +159,12 @@ function Navbar() {
             ))}
           </Box>
 
-          <Box sx={{ flexGrow: 0 }}>
+          <Box sx={{ flexGrow: 0 ,alignItems:"center",flexDirection:"row",display:{md:"flex"} }}>
+         {(user)&& <Typography sx={{marginRight:"20px"}}>{user.firstName} {user.lastName}</Typography>}   
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                
+               <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" /> 
               </IconButton>
             </Tooltip>
             <Menu
@@ -180,7 +185,7 @@ function Navbar() {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} >
-               {   (setting != "Logout") && < Link to ={`/${setting}`}>{setting}</Link> }
+               {   (setting !== "Logout") && < Link to ={`/${setting}`}>{setting}</Link> }
                {   (setting === "Logout") && < Link to ="/">{setting}</Link> }
                 </MenuItem>
               ))}

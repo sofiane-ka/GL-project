@@ -4,9 +4,11 @@ import Typography from '@mui/material/Typography'
 const Descrip=()  => {
 
     return (
-   <Box sx ={{margin : "auto",
+   <Box sx ={{
+    
+              margin : "auto",
               width: 1600,
-              height: 1000,
+              height: 700,
               paddingX : "30px",
                }}>
   
@@ -19,7 +21,7 @@ const Descrip=()  => {
   mr: 2,
   fontFamily: 'monospace',
   fontWeight: 10,
-  fontSize : 25,
+  fontSize : 30,
   letterSpacing: '.3rem',
   color: '#14213D',
   marginTop : "300px",

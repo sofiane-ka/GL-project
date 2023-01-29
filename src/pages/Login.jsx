@@ -1,26 +1,70 @@
 import React from 'react'
-import TextField from '@mui/material/TextField';
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 import { Link } from "react-router-dom";
 import Button from '@mui/material/Button';
-
-import Paper from '@mui/material/Paper';
-import Stack from '@mui/material/Stack';
-import { styled } from '@mui/material/styles';
-import { Box } from '@mui/system';
-
+import { useState,useEffect } from 'react';
+import { Navigate } from "react-router-dom";
+import jwt_decode from "jwt-decode";
+import { UserContext } from '../components/UserContext';
+import { useContext } from 'react';
 
 const Login=()  => {
 
-    return (
-   <Container sx ={{margin : "auto",
+
+   const [isLoading,setLoading] = useState(true);
+
+
+   const [user,setUser] = useState({
+      firstName:"kk",
+      lastName:"vv",
+      job:"Mobile developer",
+      age:"20",
+      id:"1",
+      img:"../img/linked.png",
+    }) 
+   
+
+   
+   
+
+
+   async function handleCallbackResponse(response){
+      console.log("Encoded JWT ID token :" + response.credential);
+      var userObject = jwt_decode(response.credential);
+      console.log(userObject);
+      user.lastName= userObject.family_name;
+      user.firstName = userObject.given_name;
+      user.img= userObject.picture ;
+      setUser(user);
+   }
+   
+   useEffect(()=>{
+      /* global google */
+       google.accounts.id.initialize({
+         client_id:"118220463401-vgrlkjh5uoo43bd99tuhg5ddl6290bof.apps.googleusercontent.com",
+         callback: handleCallbackResponse
+       });
+
+       google.accounts.id.renderButton(
+         document.getElementById("signInDiv"),
+         {theme:"outline",size:"large"}
+       )
+
+   },[])
+    
+
+
+   if (user.firstName==="" || user.lastName===""){
+      return (
+         <Container sx ={{margin : "auto",
               width: 1100,
               height: 600,
               backgroundColor :"#F5F5F5",
               marginTop:"200px"
             
                }}>
+            
     <Container sx ={{margin : "auto",
               width: 1100,
               height: 100,
@@ -85,6 +129,7 @@ const Login=()  => {
     slightly believable. If you are going to use a passage of 
       repetition, injected humour, or non-characteristic words etc.
  </Typography>
+ <div  id="signInDiv" class="g-signin2" data-width="300" data-height="200" data-longtitle="true">
  <Button
                 key="submit"
                 
@@ -105,8 +150,9 @@ const Login=()  => {
               >
                 
                  <Link to ="/home">Sign In With Google</Link>
-      
+                {/* {user && (<Navigate to="/dashboard" replace={true} />)}*/}
               </Button>
+              </div>
  </Container>
 </Container> 
 
@@ -154,6 +200,17 @@ const Login=()  => {
 
 
     )
+   
+   }
+
+    return (
+      <div>
+         <UserContext.Provider value={{user,setUser}}>
+         {user && (<Navigate to="/home" replace={true} />)}
+         </UserContext.Provider>
+      </div>
+    ) 
+   
   }
   
   export default Login

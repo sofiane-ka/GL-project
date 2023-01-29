@@ -1,17 +1,23 @@
 import React from 'react'
-import TextField from '@mui/material/TextField';
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 import { Link } from "react-router-dom";
 import Button from '@mui/material/Button';
-
-import Paper from '@mui/material/Paper';
-import Stack from '@mui/material/Stack';
-import { styled } from '@mui/material/styles';
 import { Box } from '@mui/system';
+import { useContext } from 'react';
+import { UserContext } from './UserContext';
+import { useState } from 'react';
 
 
 const Welcome=()  => {
+
+  /*     USER INFORMATIONS FROM THE CONTEXT       */
+  const {user,setUser} = useContext(UserContext);
+ 
+  /* const [user,setUser] = useState(userInfos); */
+
+
+  /* **************************** */
 
     return (
 <Container sx={{ marginTop:"0px", flexDirection:"column" ,display:{md:"flex"}}}  >
@@ -22,9 +28,11 @@ const Welcome=()  => {
                   <img src={require('../img/trois.png')} />
                 </Container>
                
-                <Container sx={{ height: 400 , width: 900}}>
-                  <Container>
-                    <Box sx ={{margin : "auto",
+                <Container sx={{  height: 400 , width: 1900}}>
+               
+                    <Box sx ={{
+                           
+                          margin : "auto",
                              textAlign :"center",
                               height: 10,
                              marginTop :"50px",
@@ -36,7 +44,22 @@ const Welcome=()  => {
                          sx={{  
                        fontFamily: 'monospace',
                        fontWeight: 100,
-                       fontSize:70,
+                       fontSize:50,
+                       letterSpacing: '.0rem',
+                       color: '#14213D',
+                       marginTop : "0px",
+                      
+                       margin:"auto",
+                      width:"400px"
+                       }}
+                            >
+                       Welcome   <Typography
+                          variant="h6"
+                          component="a"
+                         sx={{  
+                       fontFamily: 'monospace',
+                       fontWeight: 100,
+                       fontSize:60,
                        letterSpacing: '.0rem',
                        color: '#14213D',
                        marginTop : "0px",
@@ -44,8 +67,10 @@ const Welcome=()  => {
                       width:"400px"
                        }}
                             >
-                       Welcome
+                       {user.lastName}
                       </Typography>
+                      </Typography>
+                     
                       <Typography
    variant="h6"
    component="a"
@@ -89,7 +114,7 @@ const Welcome=()  => {
       
               </Button>
                      </Box>
-                  </Container>
+                  
                 
                 </Container>
 
@@ -99,12 +124,12 @@ const Welcome=()  => {
             {/* ....................*/ }
             <Container sx={{ marginTop:"20px" ,flexDirection:"row" , display:{md:"flex"}}}>
 
-                  <Container sx={{marginTop:"25px", marginRight : "120px" , height: 500}}>
+                  <Container sx={{marginTop:"25px", marginRight : "10px" , height: 500}}>
                     
                   <img src={require('../img/livre.png')} />
                   </Container>
                  
-                  <Container sx={{backgroundColor:"#D9D9D9" , height: 400 , width: 900}}>
+                  <Container sx={{backgroundColor:"#D9D9D9" , height: 300 , width: 1900}}>
                      <Container sx={{height:40 , width:90 ,backgroundColor:"#FCA311", marginRight:"1px",marginTop:"-10px" }}>
 
                      </Container>   
@@ -127,7 +152,7 @@ const Welcome=()  => {
                       </Typography>
 
                      </Container>
-                     <Container sx={{marginTop:"10px" }}>
+                     <Container sx={{  marginTop:"10px" }}>
                      <Typography
                           variant="h6"
                           component="a"

@@ -1,24 +1,22 @@
-import React, { useState, useEffect } from "react";
+import React, { useState} from "react";
 import Box from '@mui/material/Box'; 
 import { Typography } from '@mui/material';
-import Stack from '@mui/material/Stack';
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container'
-import ImageList from '@mui/material/ImageList';
-import ImageListItem from '@mui/material/ImageListItem';
 import Avatar from '@mui/material/Avatar';
-import userEvent from "@testing-library/user-event";
 import TextField from '@mui/material/TextField';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import { UserContext } from "./UserContext";
+import { useContext } from "react";
 
-
+/*                 tableau de formations             */
  const EnsembleFormat =[
   { img : '../img/livre.png',
  theme :"Web Dev",
@@ -70,17 +68,20 @@ import DialogTitle from '@mui/material/DialogTitle';
 }
  ] ;
 
-const user = [
-  {
-    firstName:"Sofiane",
-    lastName:"Karaouni",
-    job:"Mobile developer",
-    age:"20",
-    id:"1"
-  }
-]
 
+ /*     ************************************** */
+
+
+
+/*                 la fonction Profile                    */
 const Profile= () => {
+  /*     USER INFORMATIONS FROM THE CONTEXT       */
+  const {user,setUser} = useContext(UserContext);
+ 
+  
+
+
+  /* **************************** */
   const [open, setOpen] = React.useState(false);
 
   const [searchQuery, setSearchQuery] = useState("");
@@ -97,7 +98,7 @@ const Profile= () => {
   theme :"",
   announcer:"",
   content : "content 2 is ...s simply dummy text the printing and typesetting indust Lorem Ipsum has been the industry." ,
-  id:user[0].id
+  id:user.id
  });
 
  const handleChangeInput = (e)=> {
@@ -108,12 +109,12 @@ const Profile= () => {
  }
  
 const [EnsembleFormatUser,setFormat] = useState(
-  EnsembleFormat.filter((obj) => obj.id === user[0].id)
+  EnsembleFormat.filter((obj) => obj.id === user.id)
   );
 
 const handleCreateAnn = (e) => {
    e.preventDefault();
-   if(input.id === user[0].id){
+   if(input.id === user.id){
    const copyEns =[input].concat(EnsembleFormatUser);
    setFormat(copyEns);
    }
@@ -136,7 +137,7 @@ const handleCreateAnn = (e) => {
 
   const handleDelete=(e) => {
     e.preventDefault();
-   if(input.id === user[0].id){
+   if(input.id === user.id){
    const copyEns =EnsembleFormatUser.filter((obj)=>{ return ((obj.id !== input.id)||(obj.theme !==input.theme));});
    setFormat(copyEns);
    }
@@ -175,7 +176,7 @@ const handleCreateAnn = (e) => {
                    marginLeft:"60px",
                    }}
                    >
-                   {user[0].firstName} {user[0].lastName}
+                   {user.firstName} {user.lastName}
                    </Typography>
                    <Typography
                    variant="h6"
@@ -193,7 +194,7 @@ const handleCreateAnn = (e) => {
                    textAlign:"left",
                    }}
                    >
-                   {user[0].age} ans
+                   {user.age} ans
                    </Typography>
                    <Typography
                    variant="h6"
@@ -210,7 +211,7 @@ const handleCreateAnn = (e) => {
                    textAlign:"left",
                    }}
                    >
-                   {user[0].job} 
+                   {user.job} 
                    </Typography>
                    </Container>
                </Container>

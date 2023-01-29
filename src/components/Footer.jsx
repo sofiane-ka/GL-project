@@ -1,9 +1,7 @@
-import React from 'react'
-import Box from '@mui/material/Box'; 
+ import React from 'react'
 import Container from '@mui/material/Container'
 import { Typography } from '@mui/material';
-import Stack from '@mui/material/Stack';
-import { Block } from '@mui/icons-material';
+
 const Footer= () => {
 
     return (

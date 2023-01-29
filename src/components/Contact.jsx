@@ -1,12 +1,10 @@
 import React from 'react'
 import Box from '@mui/material/Box'; 
 import { Typography } from '@mui/material';
-import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Link } from "react-router-dom";
-import Button from '@mui/material/Button';
 import TextField from "@mui/material/TextField";
 import  { useState, useEffect } from "react";
 import Avatar from '@mui/material/Avatar';
@@ -54,6 +52,8 @@ const EnsembleContacts =[{
 }];
 
 const Contact= () => {
+
+  
 
   const [searchQuery, setSearchQuery] = useState("");
 

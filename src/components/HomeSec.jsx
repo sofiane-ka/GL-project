@@ -1,11 +1,8 @@
 import React from 'react'
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
-import ImagesSw from './ImagesSw';
 import Descrip from './Descrip';
-import Footer from './Footer';
 import { Typography } from '@mui/material';
 import Welcome from './Welcome';
 
