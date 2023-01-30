@@ -14,4 +14,4 @@ class AnnouncementSerialiser(serializers.ModelSerializer):
     class Meta:
         model = Announcement
         fields = ('category', 'theme', 'modality', 'description',
-                  'rate', 'wilaya', 'commune', 'adresse', 'longitude', 'latitude', 'photo')
+                  'rate', 'wilaya', 'commune', 'adresse', 'photo')
