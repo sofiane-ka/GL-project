@@ -15,66 +15,19 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import { UserContext } from "./UserContext";
 import { useContext } from "react";
+import data from "../data.json";
 
-/*                 tableau de formations             */
- const EnsembleFormat =[
-  { img : '../img/livre.png',
- theme :"Web Dev",
- announcer:"Younes Oudjehane",
- content : "content 2 is ...s simply dummy text the printing and typesetting indust Lorem Ipsum has been the industry." ,
- id:"1"
 
-},
-{ img : '../img/livre.png',
- theme :"Web Dev",
- announcer:"Younes Oudjehane",
- content : "content 3 is ..s simply dummy text the printing and typesetting indust Lorem Ipsum has been the industry." ,
- id:"2"
-
-},
-{ img : '../img/livre.png',
- theme :"Web Dev",
- announcer:"Younes Oudjehane",
- content : "content 4 is ... is simply dummy text the printing and typesetting indust Lorem Ipsum has been the industry." ,
- id:"2"
-
-},
-{ img : '../img/livre.png',
- theme :"Web Dev",
- announcer:"Younes Oudjehane",
- content : "content 6 is ...is simply dummy text the printing and typesetting indust Lorem Ipsum has been the industry." ,
- id:"1"
-
-},
-{ img : '../img/livre.png',
- theme :"Web Dev",
- announcer:"Younes Oudjehane",
- content : "content 7 is ...is simply dummy text the printing and typesetting indust Lorem Ipsum has been the industry." ,
- id:"2"
-
-},
-{ img : '../img/livre.png',
- theme :"Web Dev",
- announcer:"Younes Oudjehane",
- content : "content 8 is ...psum is simply dummy text the printing and typesetting indust Lorem Ipsum has been the industry." ,
- id:"2"
-
-},
-{ img : '../img/livre.png',
- theme :"Web Dev",
- announcer:"Sofiane Karaouni",
- content : "content 9 is .....is simply dummy text the printing and typesetting indust Lorem Ipsum has been the industry." ,
- id:"1"
-}
- ] ;
 
 
  /*     ************************************** */
 
-
+ const EnsembleFormat = data.formations;
 
 /*                 la fonction Profile                    */
 const Profile= () => {
+  
+  
   /*     USER INFORMATIONS FROM THE CONTEXT       */
   const {user,setUser} = useContext(UserContext);
  
@@ -117,6 +70,9 @@ const handleCreateAnn = (e) => {
    if(input.id === user.id){
    const copyEns =[input].concat(EnsembleFormatUser);
    setFormat(copyEns);
+   const jsonContent = JSON.stringify(copyEns);
+    
+
    }
    else setOpen(true);
 }
@@ -158,7 +114,8 @@ const handleCreateAnn = (e) => {
                   flexDirection:"row",display:{md:"flex"},
                   marginTop :"50px",
                   }}>
-                 <Avatar sx={{ width:250 ,height:250}} alt={user.firstName} src="/static/images/avatar/3.jpg" />
+                 {(user.img)? <Avatar sx={{ width:250 ,height:250}} alt={user.firstName} src={user.img} />
+                 : <Avatar sx={{ width:250 ,height:250}} alt={user.firstName} src="/static/images/avatar/3.jpg" /> }
                  <Container sx={{marginY:"30px" ,height:400, flexDirection:"column",display:{md:"flex"} }}>
                  <Typography
                    variant="h6"
@@ -276,7 +233,7 @@ const handleCreateAnn = (e) => {
               </Button> 
              
               <Button
-                key="submit"
+                
 
                 onClick={handleDeleteAnn}
                 
@@ -561,7 +518,7 @@ const handleCreateAnn = (e) => {
  }}
  > {frm.announcer} </Typography>
 </Container>
-<Container sx={{paddingLeft:"1px", display:{md:"flex"}}}><Typography
+<Container sx={{width:350,paddingLeft:"0px",paddingY:"0px", display:{md:"flex"}}}><Typography
  variant="h6"
  component="a"
  sx={{  
@@ -572,7 +529,7 @@ const handleCreateAnn = (e) => {
   color: '#000000',
   marginTop : "10px",
   marginLeft:"1px",
-  textAlign:"center",
+  textAlign:"start",
   display: {md: 'flex'}
 
  }}

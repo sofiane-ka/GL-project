@@ -5,7 +5,7 @@ import { styled } from '@mui/material/styles';
 import Descrip from './Descrip';
 import { Typography } from '@mui/material';
 import Welcome from './Welcome';
-
+import data from '../data.json';
 const HomeSec= () => {
     const Item = styled(Paper)(({ theme }) => ({
         backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',

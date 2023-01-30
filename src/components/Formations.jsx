@@ -7,70 +7,54 @@ import { Link } from "react-router-dom";
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container'
 import TextField from "@mui/material/TextField";
+import data from '../data.json';
 
 
-const EnsembleFormat = [
-  { img: '../img/livre.png',
-     theme :"Mobile Dev",
-     announcer:"Sofiane Karaouni",
-     content : "content 1 is .... is simply dummy text the printing and typesetting indust Lorem Ipsum has been the industry." ,
-     id:"1"
-
-  },
-  { img : '../img/livre.png',
-  theme :"Web Dev",
-  announcer:"Younes Oudjehane",
-  content : "content 2 is ...s simply dummy text the printing and typesetting indust Lorem Ipsum has been the industry." ,
-  id:"2"
-
-},
-{ img : '../img/livre.png',
-  theme :"Web Dev",
-  announcer:"Younes Oudjehane",
-  content : "content 3 is ..s simply dummy text the printing and typesetting indust Lorem Ipsum has been the industry." ,
-  id:"2"
-
-},
-{ img : '../img/livre.png',
-  theme :"Web Dev",
-  announcer:"Younes Oudjehane",
-  content : "content 4 is ... is simply dummy text the printing and typesetting indust Lorem Ipsum has been the industry." ,
-  id:"2"
-
-},
-{ img : '../img/livre.png',
-  theme :"Web Dev",
-  announcer:"Younes Oudjehane",
-  content : "content 6 is ...is simply dummy text the printing and typesetting indust Lorem Ipsum has been the industry." ,
-  id:"2"
-
-},
-{ img : '../img/livre.png',
-  theme :"Web Dev",
-  announcer:"Younes Oudjehane",
-  content : "content 7 is ...is simply dummy text the printing and typesetting indust Lorem Ipsum has been the industry." ,
-  id:"2"
-
-},
-{ img : '../img/livre.png',
-  theme :"Web Dev",
-  announcer:"Younes Oudjehane",
-  content : "content 8 is ...psum is simply dummy text the printing and typesetting indust Lorem Ipsum has been the industry." ,
-  id:"2"
-
-},
-{ img : '../img/livre.png',
-  theme :"Web Dev",
-  announcer:"Younes Oudjehane",
-  content : "content 9 is .....is simply dummy text the printing and typesetting indust Lorem Ipsum has been the industry." ,
-  id:"2"
-
-},
 
 
- ];
+/*
+const [data, setData] = useState<Data>({})
+const fetchJson = () => {
+  fetch('./data.json')
+  .then(response => {
+    return response.json();
+  }).then(data => {
+    setData(data);
+  }).catch((e) => {
+    console.log(e);
+  });
+}
+useEffect(() => {
+  fetchJson()
+},[])
+*/
+
+
+
+ 
+
+const EnsembleFormat = data.formations;
 
 const Formations= () => {
+  console.log(EnsembleFormat);
+  /*  ************* data ************* */
+  /*
+  const [data, setData] = useState<Data>({});
+  const fetchJson = () => {
+    fetch('./data.json')
+    .then(response => {
+      return response.json();
+    }).then(data => {
+      setData(data);
+    }).catch((e) => {
+      console.log(e);
+    });
+  }
+  useEffect(() => {
+    fetchJson()
+  },[])
+  */
+  /* *********************************** */
    const [isGray,setGray] = useState("1");
    
    const [searchQuery, setSearchQuery] = useState("");
@@ -145,7 +129,7 @@ const Formations= () => {
  }}>
    {
  EnsembleFormat.filter((d) => Object.values(d).some(val => val.includes(searchQuery))).map((frm) => (
-<Container sx={{ 
+ <Container sx={{ 
     height:300 ,
     marginTop:"35px",
     textAlign:"center",
@@ -224,7 +208,7 @@ const Formations= () => {
  }}
  > {frm.announcer} </Typography>
 </Container>
-<Container sx={{paddingLeft:"1px", display:{md:"flex"}}}><Typography
+<Container sx={{width:350, paddingY:"0px", paddingLeft:"0px", display:{md:"flex"}}}><Typography
  variant="h6"
  component="a"
  sx={{  
@@ -234,8 +218,8 @@ const Formations= () => {
   letterSpacing: '.0rem',
   color: '#000000',
   marginTop : "10px",
-  marginLeft:"1px",
-  textAlign:"center",
+  marginLeft:"0px",
+  textAlign:"start",
   display: {md: 'flex'}
 
  }}
@@ -274,6 +258,7 @@ const Formations= () => {
 
 
   </Container>
+           
 ))
 }
     </Container>

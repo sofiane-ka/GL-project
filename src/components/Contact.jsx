@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import TextField from "@mui/material/TextField";
 import  { useState, useEffect } from "react";
 import Avatar from '@mui/material/Avatar';
-
+import data from '../data.json';
 const EnsembleContacts =[{
   firstName:"Sofiane",
   lastName:"Karaouni",

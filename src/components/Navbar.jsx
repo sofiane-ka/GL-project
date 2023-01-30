@@ -15,10 +15,10 @@ import AdbIcon from '@mui/icons-material/Adb';
 import { Link } from "react-router-dom";
 import { UserContext } from './UserContext';
 import { useContext } from 'react';
-
+import data from '../data.json';
 
 const pages = ['Home', 'Formations', 'Cours','Contact'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['Profile', 'Logout'];
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -59,12 +59,12 @@ const {user,setUser} = useContext(UserContext);
     }}>
       <Container maxWidth="2xl">
         <Toolbar disableGutters>
-          
+        
           <Typography
             variant="h6"
             noWrap
             component="a"
-            href="/home"
+           
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -129,7 +129,7 @@ const {user,setUser} = useContext(UserContext);
             variant="h5"
             noWrap
             component="a"
-            href=""
+            
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
@@ -163,8 +163,8 @@ const {user,setUser} = useContext(UserContext);
          {(user)&& <Typography sx={{marginRight:"20px"}}>{user.firstName} {user.lastName}</Typography>}   
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                
-               <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" /> 
+              {(user.img) ? <Avatar alt="Remy Sharp" src={user.img} /> 
+              : <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" /> }
               </IconButton>
             </Tooltip>
             <Menu

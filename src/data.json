@@ -1,0 +1,39 @@
+{
+ "formations" : [
+     { "img": "../img/livre.png",
+     "theme" :"Mobile Dev",
+     "announcer":"Sofiane Karaouni",
+     "content" : "content 1 is .... is simply dummy text the printing and typesetting indust Lorem Ipsum has been the industry." ,
+     "id":"1"
+
+  },
+  { "img": "../img/livre.png",
+     "theme" :"Web Dev",
+     "announcer":"Sofian Karaouni",
+     "content" : "content 2 is .... is simply dummy text the printing and typesetting indust Lorem Ipsum has been the industry." ,
+     "id":"1"
+
+  },
+  { "img": "../img/livre.png",
+     "theme" :"Graphic Design",
+     "announcer":"Sofiane Karaouni",
+     "content" : "content 3 is .... is simply dummy text the printing and typesetting indust Lorem Ipsum has been the industry." ,
+     "id":"1"
+
+  },
+  { "img": "../img/livre.png",
+  "theme" :"Graphic Design",
+  "announcer":"Younes Oudjehane",
+  "content" : "content 3 is .... is simply dummy text the printing and typesetting indust Lorem Ipsum has been the industry." ,
+  "id":"2"
+
+}
+ ]
+
+
+
+
+
+
+
+}

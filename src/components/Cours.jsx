@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 import Button from '@mui/material/Button';
 import TextField from "@mui/material/TextField";
 import  { useState } from "react";
-
+import data from '../data.json';
 const EnsembleCours =["Mobile Dev" , "Web Dev" , "Graphic Design" , "Film Editing","Logo Design"];
 const Cours= () => {
    const [searchQuery, setSearchQuery] = useState("");

@@ -7,7 +7,7 @@ import { Box } from '@mui/system';
 import { useContext } from 'react';
 import { UserContext } from './UserContext';
 import { useState } from 'react';
-
+import data from '../data.json';
 
 const Welcome=()  => {
 
@@ -124,7 +124,7 @@ const Welcome=()  => {
             {/* ....................*/ }
             <Container sx={{ marginTop:"20px" ,flexDirection:"row" , display:{md:"flex"}}}>
 
-                  <Container sx={{marginTop:"25px", marginRight : "10px" , height: 500}}>
+                  <Container sx={{marginTop:"25px", marginRight : "70px" , height: 500}}>
                     
                   <img src={require('../img/livre.png')} />
                   </Container>

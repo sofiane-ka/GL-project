@@ -5,6 +5,7 @@ import Footer from "../components/Footer";
 import { useState } from "react";
 import { UserContext } from "../components/UserContext";
 import { useContext } from "react";
+import data from '../data.json';
 const Home= () => {
  const {user,setUser} = useContext(UserContext);
  

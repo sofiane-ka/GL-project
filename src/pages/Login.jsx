@@ -8,50 +8,14 @@ import { Navigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 import { UserContext } from '../components/UserContext';
 import { useContext } from 'react';
-
+import data from '../data.json';
 const Login=()  => {
 
 
    const [isLoading,setLoading] = useState(true);
 
+   const  {user, setUser} = useContext(UserContext)
 
-   const [user,setUser] = useState({
-      firstName:"kk",
-      lastName:"vv",
-      job:"Mobile developer",
-      age:"20",
-      id:"1",
-      img:"../img/linked.png",
-    }) 
-   
-
-   
-   
-
-
-   async function handleCallbackResponse(response){
-      console.log("Encoded JWT ID token :" + response.credential);
-      var userObject = jwt_decode(response.credential);
-      console.log(userObject);
-      user.lastName= userObject.family_name;
-      user.firstName = userObject.given_name;
-      user.img= userObject.picture ;
-      setUser(user);
-   }
-   
-   useEffect(()=>{
-      /* global google */
-       google.accounts.id.initialize({
-         client_id:"118220463401-vgrlkjh5uoo43bd99tuhg5ddl6290bof.apps.googleusercontent.com",
-         callback: handleCallbackResponse
-       });
-
-       google.accounts.id.renderButton(
-         document.getElementById("signInDiv"),
-         {theme:"outline",size:"large"}
-       )
-
-   },[])
     
 
 
@@ -150,6 +114,7 @@ const Login=()  => {
               >
                 
                  <Link to ="/home">Sign In With Google</Link>
+                 
                 {/* {user && (<Navigate to="/dashboard" replace={true} />)}*/}
               </Button>
               </div>

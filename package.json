@@ -19,6 +19,7 @@
     "@testing-library/user-event": "^13.5.0",
     "animate.css": "^4.1.1",
     "framer-motion": "^8.5.2",
+    "fs": "^0.0.1-security",
     "gsap-trial": "^3.11.3",
     "jwt-decode": "^3.1.2",
     "loaders.css": "^0.1.2",
@@ -26,11 +27,13 @@
     "react-dom": "^18.2.0",
     "react-leaflet": "^4.1.0",
     "react-loaders": "^3.0.1",
+    "react-native-fs": "^2.20.0",
     "react-router-dom": "^6.4.2",
     "react-scripts": "5.0.1",
     "sass": "^1.55.0",
     "styled-components": "^5.3.6",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "write-json-file": "^5.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
