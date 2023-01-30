@@ -17,7 +17,8 @@ import { UserContext } from './UserContext';
 import { useContext } from 'react';
 import data from '../data.json';
 
-const pages = ['Home', 'Formations', 'Cours','Contact'];
+
+const pages = ['Home', 'Formations', 'Cours','Contact','Chat'];
 const settings = ['Profile', 'Logout'];
 
 function Navbar() {
@@ -119,6 +120,8 @@ const {user,setUser} = useContext(UserContext);
                   { (page === "Formations") && <Typography textAlign="center"><Link to ="/formations">{page}</Link></Typography>}
                   { (page === "Cours") && <Typography textAlign="center"><Link to ="/cours">{page}</Link></Typography>}
                   { (page === "Contact") && <Typography textAlign="center"><Link to ="/contact">{page}</Link></Typography>}
+                  { (page === "Chat") && <Typography textAlign="center"><Link to ="/chat">{page}</Link></Typography>}
+
                   
                 </MenuItem>
               ))}
@@ -155,6 +158,7 @@ const {user,setUser} = useContext(UserContext);
                 { (page === "Formations") && <Link to ="/formations">{page}</Link>}
                 { (page === "Cours") && <Link to ="/cours">{page}</Link>}
                 { (page === "Contact") && <Link to ="/contact">{page}</Link>}
+                { (page === "Chat") && <Link to ="/chat">{page}</Link>}
               </Button>
             ))}
           </Box>
