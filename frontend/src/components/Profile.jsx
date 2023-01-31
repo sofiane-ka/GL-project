@@ -376,7 +376,7 @@ const Profile = () => {
                     textAlign: "left",
                   }}
                 >
-                  {user.job}
+                  {user.email}
                 </Typography>
               </Container>
             </Container>

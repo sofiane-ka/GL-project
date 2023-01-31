@@ -34,8 +34,9 @@ const [user,setUser] = useState({
   lastName:"",
   job:"Mobile developer",
   age:"20",
-  idUser:"",
+  idUser:"4",
   img:"",
+  email:"",
 }) 
 
 const [done,setDone]=useState("0");
@@ -54,7 +55,7 @@ function handleCallbackResponse(response){
   userAfter.lastName  = userObject.family_name;
   userAfter.firstName = userObject.given_name;
   userAfter.img = userObject.picture ;
-  userAfter.idUser=userObject.aud;
+  userAfter.email=userObject.email;
   setUser(userAfter);
   console.log(user)
   setDone("1");
