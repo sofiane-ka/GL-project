@@ -10,7 +10,6 @@ import Home from "./pages/Home";
 import Formations from "./components/Formations";
 import Cours from "./components/Cours";
 import Contact from "./components/Contact";
-import Chat from "./components/Chat";
 import HomeAdmin from "./pages/HomeAdmin";
 import HomeTeacher from "./pages/HomeTeacher";
 import Profile from "./components/Profile";
@@ -20,6 +19,8 @@ import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button';
 import { useEffect } from 'react';
+import Formation from "./components/Formation";
+import Chat from "./components/Chat";
 import jwt_decode from "jwt-decode";
 
 
@@ -248,6 +249,7 @@ return (
           <Route path="/teacher"  element={<HomeTeacher />} /> 
           <Route path="/admin"  element={<HomeAdmin />} />
           <Route path="/formations"  element={<Formations />} />
+
           <Route path="/cours"  element={<Cours />} />
           <Route path="/contact"  element={<Contact />} />
           <Route path="/Profile"  element={<Profile />} />
