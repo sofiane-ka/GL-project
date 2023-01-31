@@ -22,17 +22,21 @@ class GETViews(APIView):
         data = AnnouncementSerialiserShow(all_announcements, many=True)
         return Response(data.data)
 
+class SearchingByTheme(generics.ListAPIView):
+    serializer_class = AnnouncementSerialiserShow
+
+    def get_queryset(self):
+        theme = self.request.query_params.get('theme')
+        if theme is not None:
+            return Announcement.objects.filter(theme=theme)
 
 class GETViewsOfUser(generics.ListAPIView):
     serializer_class = AnnouncementSerialiserShow
 
     def get_queryset(self):
-
-        user = self.request.user
-        print(self.request.user.email)
-        return Announcement.objects.filter(announcer=user)
-# Searching in theme and description
-# http://127.0.0.1:8000/data/test/ser?searching=Anglais
+        id = self.request.query_params.get('id')
+        if id is not None:
+            return Announcement.objects.filter(announcer=id)
 
 
 class AnnouncementSearching(generics.ListAPIView):

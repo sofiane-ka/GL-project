@@ -25,24 +25,31 @@ import Formation from "./Formation";
 
 /*                 la fonction Profile                    */
 const Profile = () => {
+  /*     USER INFORMATIONS FROM THE CONTEXT       */
+  const { user, setUser } = useContext(UserContext);
+
   const [EnsembleFormat, setEnsembleFormat] = useState([]);
   ////EnsembleFormat.filter((obj) => obj.id === user.id)
   const [EnsembleFormatUser, setFormat] = useState([]);
   const [copyEnsFormat, setCopyEns] = useState([]);
   React.useEffect(() => {
-    axios.get(`http://127.0.0.1:8000/data/test/`).then((response) => {
-      console.log("xx");
-      console.log(response.data);
-      console.log("xx2");
-      console.log([].concat(response.data));
-      if (Array.isArray(response.data)) {
-        setFormat([].concat(response.data));
-        setCopyEns([].concat(response.data));
-      } else {
-        setFormat(response.data);
-        setCopyEns(response.data);
-      }
-    });
+    axios
+      .get(
+        `http://127.0.0.1:8000/data/test/userannouncements?id=${user.idUser}`
+      )
+      .then((response) => {
+        console.log("xx");
+        console.log(response.data);
+        console.log("xx2");
+        console.log([].concat(response.data));
+        if (Array.isArray(response.data)) {
+          setFormat([].concat(response.data));
+          setCopyEns([].concat(response.data));
+        } else {
+          setFormat(response.data);
+          setCopyEns(response.data);
+        }
+      });
   }, []);
 
   const arr = copyEnsFormat.map((frm, index) => {
@@ -206,9 +213,6 @@ const Profile = () => {
     adresse: "",
     date_created: "",
   });
-
-  /*     USER INFORMATIONS FROM THE CONTEXT       */
-  const { user, setUser } = useContext(UserContext);
 
   /* **************************** */
   const [open, setOpen] = React.useState(false);

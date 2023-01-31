@@ -12,6 +12,6 @@ urlpatterns = [
     path('test/del/<int:pk>', views.DeleteViews.as_view()),
     path('test/ser', views.AnnouncementSearching.as_view()),
     path('test/userannouncements', views.GETViewsOfUser.as_view()),
-
+    path('test/themeSer', views.SearchingByTheme.as_view()),
 
 ]
